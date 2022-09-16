@@ -1,9 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:from_css_color/from_css_color.dart';
-import 'package:tambola_frontend/constants/colors.dart';
 import 'package:tambola_frontend/constants/gradients.dart';
 import 'package:tambola_frontend/constants/new_gradints.dart';
+import 'package:tambola_frontend/screens/AddMoneyCard/widgets/add_money_container.dart';
 import 'package:tambola_frontend/screens/SelectRoom/widgets/coustom_button_text.dart';
 
 class AddMoneyCard extends StatefulWidget {
@@ -36,28 +37,28 @@ class _AddMoneyCardState extends State<AddMoneyCard> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => Scaffold(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.transparent,
         body: Center(
           child: Container(
             width: 359.w,
             height: 418.h,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
-                gradient: newgreygradient),
+                gradient: newmetallicGradient),
             child: Column(children: [
               SizedBox(height: 20.h),
               Container(
                 width: 319.w,
                 height: 80.h,
                 decoration: BoxDecoration(
-                  gradient: blueGradient2,
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
+                    gradient: blueGradient2,
+                    borderRadius: BorderRadius.circular(20.r),
+                    boxShadow: [boxShadowWallet]),
                 child: Row(
                   children: [
                     Padding(
                       padding:
-                          EdgeInsets.only(top: 13.h, left: 30.w, right: 15.w),
+                          EdgeInsets.only(top: 13.h, left: 30.w, right: 15.w,),
                       child: Column(
                         children: [
                           NewCoustomText(
@@ -166,42 +167,61 @@ class _AddMoneyCardState extends State<AddMoneyCard> {
                           )
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
+              SizedBox(height: 20.h),
+              SizedBox(
+                width: 359.w,
+                height: 275.h,
+                child: Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.only(top: 0.h, left: 50.w),
+                    children: [
+                      AddMoneyContainer(
+                        coins: "5",
+                        amount: "5",
+                        coins1: "50",
+                        amount1: "50",
+                        padding1: 22.w,
+                        padding: 30.w,
+                      ),
+                      SizedBox(height: 10.h),
+                      AddMoneyContainer(
+                        coins: "120",
+                        amount: "100",
+                        coins1: "240",
+                        amount1: "200",
+                        padding1: 15.w,
+                        padding: 15.w,
+                      ),
+                      SizedBox(height: 10.h),
+                      AddMoneyContainer(
+                        coins: "580",
+                        amount: "500",
+                        coins1: "1150",
+                        amount1: "1000",
+                        padding1: 12.w,
+                        padding: 15.w,
+                      ),
+                      SizedBox(height: 10.h),
+                      AddMoneyContainer(
+                        coins: "2300",
+                        amount: "2000",
+                        coins1: "5500",
+                        amount1: "5000",
+                        padding1: 7.w,
+                        padding: 7.w,
+                      ),
+                      SizedBox(height: 10.h),
+                    ],
+                  ),
+                ),
+              )
             ]),
           ),
         ),
-      ),
-      designSize: const Size(428, 926),
-    );
-  }
-}
-
-class AddMoneyContainer extends StatelessWidget {
-  const AddMoneyContainer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (context, child) => Container(
-        width: 99.w,
-        height: 101.h,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.r), gradient: blueGradient2),
-        child: Column(children: [
-          Row(
-            children: [
-              NewCoustomText(
-                  text: "",
-                  fontsize: 25.sp,
-                  fontWeight: FontWeight.bold,
-                  color: newfireliner.colors),
-                  
-            ],
-          )
-        ]),
       ),
       designSize: const Size(428, 926),
     );
